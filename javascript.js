@@ -19,11 +19,17 @@ function colourChanger(event) {
 		blue = 0;
 	// And the dimensions we have..
 	var centerPoint = [parseInt(window.innerWidth / 2, 10), parseInt(window.innerHeight / 2, 10)];
-
+	var cssString = "";
 	// My first plan is to use hexes here because I kinda like them.
-
-
-	var backgroundGradient = "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)";
+	for (var i = 0; i < 7; i++) {
+		//var hex = ""
+		//console.log("X : ", event.screenY.toString(16).toUpperCase());
+		//console.log("Y : ", event.screenX.toString(16).toUpperCase());
+		var hexValue = (i < 6) ? "#" + event.screenY.toString(16).toUpperCase() + event.screenX.toString(16).toUpperCase() + ", " : "#" + event.screenY.toString(16).toUpperCase() + event.screenX.toString(16).toUpperCase();
+		cssString = cssString + hexValue;
+	}
+	console.log("cssString = ", cssString);
+	var backgroundGradient = "linear-gradient(to right, " + cssString +")";
 	document.getElementById("body").style.background = backgroundGradient;
 }
 
