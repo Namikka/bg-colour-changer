@@ -19,9 +19,10 @@ function colourChanger(event) {
 			// To generate different colours, we need some math.
 			var firstMathY = parseInt(centerPoint[0] * (event.clientY * i) / 255) / 16;
 			var firstMathX = parseInt(centerPoint[1] * (event.clientX * i) / 255) / 16;
-			var secondMathY = (firstMathY < 255) ? parseInt(firstMathY, 10) : parseInt(firstMathY / 2, 10);
-			var secondMathX = (firstMathX < 255) ? parseInt(firstMathX, 10) : parseInt(firstMathX / 2, 10);
+			var secondMathY = (firstMathY < 255) ? parseInt(firstMathY, 10) : parseInt(firstMathY / 4, 10);
+			var secondMathX = (firstMathX < 255) ? parseInt(firstMathX, 10) : parseInt(firstMathX / 4, 10);
 			var hexValue = (i < 7) ? "#" + secondMathY.toString(16).toUpperCase() + secondMathX.toString(16).toUpperCase() + ", " : "#" + secondMathY.toString(16).toUpperCase() + secondMathX.toString(16).toUpperCase();
+			
 			cssString = cssString + hexValue;
 		}
 	}
@@ -32,11 +33,11 @@ function colourChanger(event) {
 document.getElementById("center").style.position = "absolute";
 document.getElementById("center").style.width = "2px";
 document.getElementById("center").style.height = "2px";
-document.getElementById("center").style.background = "red";
+document.getElementById("center").style.background = "pink";
 document.getElementById("center").style.top = "50%";
 document.getElementById("center").style.left = "50%";
 document.getElementById("center").style.right = "auto";
 document.getElementById("center").style.bottom = "auto"; 
 
-window.addEventListener("click", colourChanger);
-//window.addEventListener("mousemove", colourChanger);
+//window.addEventListener("click", colourChanger);
+window.addEventListener("mousemove", colourChanger);
